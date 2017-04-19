@@ -1,26 +1,16 @@
 namespace Transformers
 {
 
-    public class Auto : Transformer
+    public class Auto : TransformacionVehiculo
     {
-
-        public Auto(Bando unBando, string unNombre, int unaVelocidad, int unPeso, int unPoderDestructivo)
-            : base(unBando, unNombre, unaVelocidad, unPeso, unPoderDestructivo)
-        { }
-        public override int Velocidad()
+        public override int Velocidad(Transformer transformer)
         {
-            int velocidad = base.Velocidad();
-            if (this.Transformado())
-            {
-                velocidad *= 2;
-            }
-            return velocidad;
+            return base.Velocidad(transformer)*2;
         }
 
-        public override int Peso()
+        public override int Peso(Transformer transformer)
         {
-            int peso = base.Peso();
-            return this.Transformado() ? peso / 2 : peso;
+            return base.Peso(transformer)/2;
         }
     }
 }

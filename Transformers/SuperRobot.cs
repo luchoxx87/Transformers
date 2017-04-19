@@ -5,7 +5,6 @@ namespace Transformers
 {
     public class SuperRobot : IRobot
     {
-        private Bando bando;
         private List<Transformer> robots;
 
         private SuperRobot(Transformer unRobot, Transformer otroRobot)
@@ -13,8 +12,7 @@ namespace Transformers
             robots = new List<Transformer>();
             robots.Add(unRobot);
             robots.Add(otroRobot);
-            bando = unRobot.Bando();
-            bando.AgregarALista(this);
+            unRobot.Bando().AgregarALista(this);
         }
 
         public string Nombre()
@@ -41,7 +39,7 @@ namespace Transformers
 
         public Bando Bando()
         {
-            return bando;
+            return robots[0].Bando();
         }
 
         /// 
@@ -77,7 +75,7 @@ namespace Transformers
                 unRobot.Desacoplar();
                 if (robots.Count==0)
                 {
-                    bando.Sacar(this);                    
+                    this.Bando().Sacar(this);                    
                 }
             }
             else

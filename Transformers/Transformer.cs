@@ -1,26 +1,57 @@
 using System;
 namespace Transformers
 {
-    public abstract class Transformer : IRobot
+    public class Transformer : IRobot
     {
 
         private Bando bando;
         private string nombre;
         private int velocidad;
+
+        internal int VelocidadBase
+        {
+            get { return velocidad; }
+        }
         private int peso;
+
+        internal int PesoBase
+        {
+            get { return peso; }
+        }
         private int poderDestructivo;
-        private bool transformado;
+
+        internal int PoderDestructivoBase
+        {
+            get { return poderDestructivo; }
+        }
         private SuperRobot superRobot;
-        public Transformer(Bando unBando, string unNombre, int unaVelocidad, int unPeso, int unPoderDestructivo)
+        private Transformacion transformacion;
+        public Transformer(Bando unBando, string unNombre, int unPeso, int unPoderDestructivo, Transformacion unaTransformacion, int unaVelocidad)
         {
             bando = unBando;
             nombre = unNombre;
             velocidad = unaVelocidad;
             peso = unPeso;
             poderDestructivo = unPoderDestructivo;
-            transformado = false;
+            transformacion = unaTransformacion;
             superRobot = null;
             bando.AgregarALista(this);
+        }
+
+        public Transformacion Transformacion
+        {
+            get
+            {
+                return transformacion;
+            }
+        }
+
+        public Bando Bando1
+        {
+            get
+            {
+                return bando;
+            }
         }
 
         public string Nombre()
@@ -28,48 +59,29 @@ namespace Transformers
             return nombre;
         }
 
-        public virtual int Velocidad()
+        public int Velocidad()
         {
-            return velocidad;
+            return transformacion.Velocidad(this);
         }
 
-        public virtual int PoderDestructivo()
+        public int PoderDestructivo()
         {
-            return poderDestructivo;
+            return transformacion.PoderDestructivo(this);
         }
 
-        public virtual int Peso()
+        public int Peso()
         {
-            return peso;
+            return transformacion.Peso(this);
         }
 
         public void Transformar()
         {
-            if (!transformado)
-            {
-                transformado = true;
-            }
-            else
-            {
-                throw new Exception("Ya estoy transformado");
-            }
+            transformacion.Transformar(this);
         }
 
         public void Destransformar()
         {
-            if (transformado)
-            {
-                transformado = false;
-            }
-            else
-            {
-                throw new Exception("No estoy transformado");
-            }
-        }
-
-        public bool Transformado()
-        {
-            return transformado;
+            transformacion.Destransformar(this);
         }
 
         public Bando Bando()
@@ -85,6 +97,11 @@ namespace Transformers
         public void Desacoplar()
         {
             superRobot = null;
+        }
+
+        internal void TransformaEn(Transformacion unaTransformacion)
+        {
+            this.transformacion = unaTransformacion;
         }
     }
 }

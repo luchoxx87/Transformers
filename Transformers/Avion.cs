@@ -1,34 +1,17 @@
 namespace Transformers
 {
-    public class Avion : Transformer
+    public class Avion : TransformacionVehiculo
     {
 
-        public Avion(Bando unBando, string unNombre, int unaVelocidad, int unPeso, int unPoderDestructivo)
-            : base(unBando, unNombre, unaVelocidad, unPeso, unPoderDestructivo)
-        { }
-
-        public override int Velocidad()
+        public override int Velocidad(Transformer transformer)
         {
-            if (this.Transformado())
-            {
-                return base.Velocidad() * 2;
-            }
-            else
-            {
-                return base.Velocidad();
-            }
+            return base.Velocidad(transformer) * 2;
         }
 
-        public override int PoderDestructivo()
+        public override int PoderDestructivo(Transformer transformer)
         {
-            if (this.Transformado())
-            {
-                return base.PoderDestructivo() / 2;
-            }
-            else
-            {
-                return base.PoderDestructivo();
-            }
+            return base.PoderDestructivo(transformer) / 2;
         }
+
     }
 }

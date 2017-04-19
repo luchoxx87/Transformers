@@ -7,7 +7,7 @@ namespace TestTransformers
     [TestClass]
     public class UnitTest1
     {
-        Camion optimusPrime;
+        Transformer optimusPrime;
         Bando autobotos, decepticons;
         SuperRobot optimusBumblebee;
 
@@ -15,7 +15,9 @@ namespace TestTransformers
         {
             autobotos = new Bando("Autobots");
             decepticons = new Bando("Decepticons");
-            optimusPrime = new Camion(autobotos, "Optimus Prime", 500, 750, 1000);
+            Transformacion basicaCamion = Fixture.DameCamionSeteado();
+
+            optimusPrime = new Transformer(autobotos, "Optimus Prime", 750,1000,basicaCamion, 500);
         }
         
         [TestMethod]
@@ -25,5 +27,21 @@ namespace TestTransformers
             iniciar();
             optimusPrime.Destransformar();
         }
+        [TestMethod]
+        public void optimusSinTransformar()
+        {
+            iniciar();
+            Assert.AreEqual(750, optimusPrime.Peso());
+            Assert.AreEqual(1000, optimusPrime.PoderDestructivo());
+            Assert.AreEqual(500, optimusPrime.Velocidad());
+        }
+        
+        [TestMethod]
+        public void optimusTransformado()
+        {
+            iniciar();
+            optimusPrime.Transformar();
+            Assert.AreEqual(2000, optimusPrime.PoderDestructivo());        
+        }       
     }
 }

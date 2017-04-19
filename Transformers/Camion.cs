@@ -1,20 +1,19 @@
 namespace Transformers
 {
-    public class Camion : Transformer
+    public class Camion : TransformacionVehiculo
     {
-
-        public Camion(Bando unBando, string unNombre, int unaVelocidad, int unPeso, int unPoderDestructivo)
-            : base(unBando, unNombre, unaVelocidad, unPeso, unPoderDestructivo)
-        { }
-
-        public override int PoderDestructivo()
+        public override int PoderDestructivo(Transformer transformer)
         {
-            return this.Transformado() ? base.PoderDestructivo() * 2 : base.PoderDestructivo();
+            return base.PoderDestructivo(transformer) * 2;
+        }
+        public override int Peso(Transformer transformer)
+        {
+            return base.Peso(transformer) * 2;
+        }        
+        public override string ToString()
+        {
+            return "Camion";
         }
 
-        public override int Peso()
-        {
-            return this.Transformado() ? base.Peso() * 2 : base.Peso();
-        }
     }
 }

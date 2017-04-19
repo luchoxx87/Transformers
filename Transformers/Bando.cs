@@ -13,7 +13,6 @@ namespace Transformers
             nombre = unNombre;
             robots = new List<IRobot>();
         }
-
         /// 
         /// <param name="unRobot"></param>
         public void AgregarALista(IRobot unRobot)
