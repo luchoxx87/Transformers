@@ -26,7 +26,7 @@ namespace Transformers
         }
         private SuperRobot superRobot;
         private Transformacion transformacion;
-        public Transformer(Bando unBando, string unNombre, int unPeso, int unPoderDestructivo, Transformacion unaTransformacion, int unaVelocidad)
+        internal Transformer(Bando unBando, string unNombre, int unPeso, int unPoderDestructivo, Transformacion unaTransformacion, int unaVelocidad)
         {
             bando = unBando;
             nombre = unNombre;
