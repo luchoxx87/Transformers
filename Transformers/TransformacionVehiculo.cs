@@ -16,6 +16,14 @@ namespace Transformers
         public override void Destransformar(Transformer transformer)
         {
             transformer.TransformaEn(this.Siguiente);
-        }        
+        }
+        
+        internal Transformacion dameUnaTrasformacionSeteadaParaMi()
+        {
+            Transformacion basica = new Transformacion();
+            basica.vaACambiarA(this);
+            this.vaACambiarA(basica);
+            return basica;
+        }
     }
 }
