@@ -9,15 +9,14 @@ namespace TestTransformers
     {
         Transformer optimusPrime;
         Bando autobotos, decepticons;
-        SuperRobot optimusBumblebee;
-
+        
+        [TestInitialize]
         private void iniciar()
         {
             autobotos = new Bando("Autobots");
-            decepticons = new Bando("Decepticons");
-            Transformacion basicaCamion = Fixture.DameCamionSeteado();
+            decepticons = new Bando("Decepticons");            
 
-            optimusPrime = new Transformer(autobotos, "Optimus Prime", 750,1000,basicaCamion, 500);
+            optimusPrime = Camion.dameTransformer(autobotos, "Optimus Prime", 750,1000,500);
         }
         
         [TestMethod]
@@ -42,6 +41,6 @@ namespace TestTransformers
             iniciar();
             optimusPrime.Transformar();
             Assert.AreEqual(2000, optimusPrime.PoderDestructivo());        
-        }       
+        }
     }
 }

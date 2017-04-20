@@ -3,14 +3,14 @@
   <Class Name="Transformers.Auto">
     <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Auto.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Transformers.Avion">
     <Position X="2.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Avion.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="Transformers.Camion">
     <Position X="5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AIAAAAAAAABAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Camion.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -53,7 +53,7 @@
   <Class Name="Transformers.TransformacionVehiculo">
     <Position X="3.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>TransformacionVehiculo.cs</FileName>
     </TypeIdentifier>
   </Class>
